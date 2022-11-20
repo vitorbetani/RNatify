@@ -1,0 +1,15 @@
+import React from "react";
+import { Button, StyleSheet } from "react-native";
+
+const styles = StylesSheet.create({
+    hello: { padding: 20 }
+})
+type AtomProps = {
+    anyProps: string;
+}
+
+const Atom = ({ anyProps }: AtomProps): JSX.Element => {
+    return (
+        <Button style={styles.hello} />
+    );
+}
