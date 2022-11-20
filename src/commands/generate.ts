@@ -52,7 +52,7 @@ module.exports = {
       const path = generateComponent(type, name)
       generate({
         template: `${type}.ts.ejs`,
-        directory: `./src/templates`,
+        directory: `../templates`,
         target: `./src/components/${type}/${name}.ts`,
         props: {
           name,

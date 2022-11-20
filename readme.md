@@ -1,26 +1,19 @@
-# rnatify CLI
+# RNatify CLI
 
-A CLI for rnatify.
+A CLI to create easier react native apps.
 
-## Customizing your CLI
+## Table of contents
+- [Commands](./docs/commands.md)
 
-Check out the documentation at https://github.com/infinitered/gluegun/tree/master/docs.
+## How to take advantage of RNatify
 
-## Publishing to NPM
+This CLI helps you with the day by day react native. Creating easily components, screens and services.
 
-To package your CLI up for NPM, do this:
-
-```shell
-$ npm login
-$ npm whoami
-$ npm test
-
-$ npm run build
-
-$ npm publish
-```
+The idea is to keep a consistent code through your app. Using a template will always assure:
+- JsDoc to your component
+- A type to your props in your component
+- A styles const to your component
 
 # License
-
 MIT - see LICENSE
 
