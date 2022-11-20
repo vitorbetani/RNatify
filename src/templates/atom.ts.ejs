@@ -1,15 +1,25 @@
+/** Created with RNatify */
 import React from "react";
 import { Button, StyleSheet } from "react-native";
 
-const styles = StylesSheet.create({
+const styles = StyleSheet.create({
     hello: { padding: 20 }
 })
-type AtomProps = {
+
+type <%= props.name %>Props = {
     anyProps: string;
 }
 
-const Atom = ({ anyProps }: AtomProps): JSX.Element => {
+/**
+ * Describe well your component.
+ *
+ * @param.anyProps Document the props either is a good practice.
+ * @return JSX.Element
+ */
+const <%= props.name %>Component = ({ anyProps }: <%= props.name %>Props): JSX.Element => {
     return (
         <Button style={styles.hello} />
     );
 }
+
+export default <%= props.name %>Component;
