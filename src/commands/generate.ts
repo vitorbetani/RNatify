@@ -1,64 +1,29 @@
-import { GluegunToolbox } from 'gluegun'
-
-const generateAtom = (name) => {
-  return name
-}
-const generateMolecule = (name) => {
-  return name
-}
-const generateOrganism = (name) => {
-  return name
-}
-
-const TemplateTypes = {
-  atom: 'atom',
-  molecule: 'molecule',
-  organism: 'organism',
-}
-
-const generateComponent = (type = typeof TemplateTypes, name = '') => {
-  if (!name) {
-    throw new Error('--name should be a valid string')
-  }
-
-  switch (type) {
-    case TemplateTypes.atom:
-      return generateAtom(name)
-    case TemplateTypes.molecule:
-      return generateMolecule(name)
-    case TemplateTypes.organism:
-      return generateOrganism(name)
-    default:
-      throw new Error(
-        `--type is not a valid type. Valid types are: ${Object.values(
-          TemplateTypes
-        ).join(', ')}`
-      )
-  }
-}
+import { IExtendedGluegunToolbox } from '../types/toolbox.type'
 
 module.exports = {
   name: 'generate',
   alias: ['g'],
-  run: async (toolbox: GluegunToolbox) => {
+  run: async (toolbox: IExtendedGluegunToolbox) => {
     const {
       parameters,
       template: { generate },
       print: { error, success },
+      config,
     } = toolbox
-    try {
-      const { type, name } = parameters.options
 
-      const path = generateComponent(type, name)
+    try {
+      const { name } = parameters.options
+      const { first } = parameters
+
       generate({
-        template: `${type}.ts.ejs`,
-        directory: `../templates`,
-        target: `./src/components/${type}/${name}.ts`,
+        template: config.templatesFiles[first],
+        target: `${config.paths[`${first}s`]}/${name}.tsx`,
         props: {
           name,
         },
       })
-      success(`Succesfully generated ${name} as type ${type}. ${path}`)
+
+      success(`Succesfully generated ${name} ${first}.`)
     } catch (e) {
       error(e.message)
     }

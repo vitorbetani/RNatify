@@ -1,0 +1,19 @@
+import React from "react";
+import { StyleSheet, View } from "react-native";
+
+const styles = StyleSheet.create({
+    container: {},
+});
+
+type T<%= props.name %>Props = { testID?: string };
+
+/**
+ * TODO: Comment your component here.
+ * @param props.testID The testId to the component itself
+ * @returns JSX.Element
+ */
+const <%= props.name %>Component = ({ testID = "" }: T<%= props.name %>Props): JSX.Element => {
+    return <View testID={testID} style={styles.container}></View>;
+};
+
+export default <%= props.name %>Component;
