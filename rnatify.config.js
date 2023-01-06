@@ -7,7 +7,7 @@ module.exports = {
     sanitizers: './src/sanitizers',
   },
   templatesFiles: {
-    component: './src/templates/component.tsx.ejs',
+    component: './src/customTemplate/component.tsx.ejs',
     query: './src/templates/query.tsx.ejs',
     screen: './src/templates/screen.tsx.ejs',
     service: './src/templates/service.tsx.ejs',

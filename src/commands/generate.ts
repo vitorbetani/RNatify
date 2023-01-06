@@ -1,4 +1,5 @@
 import { IExtendedGluegunToolbox } from '../types/toolbox.type'
+import * as path from 'path'
 
 module.exports = {
   name: 'generate',
@@ -15,8 +16,11 @@ module.exports = {
       const { name } = parameters.options
       const { first } = parameters
 
+      const templateName = path.parse(config.templatesFiles[first]).base
+
       generate({
-        template: config.templatesFiles[first],
+        template: templateName,
+        directory: config.templatesFiles[first].replace(`/${templateName}`, ''),
         target: `${config.paths[`${first}s`]}/${name}.tsx`,
         props: {
           name,
